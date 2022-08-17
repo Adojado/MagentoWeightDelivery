@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <carriers>
+            <weightdelivery>
+                <active>1</active>
+                <sallowspecific>0</sallowspecific>
+                <model>Adojado\WeightDelivery\Model\Carrier\Shipping</model>
+                <name>Weight Delivery</name>
+                <price>15.00</price>
+                <check_weight>1</check_weight>
+                <max_weight>20.0</max_weight>
+            </weightdelivery>
+        </carriers>
+    </default>
+</config>

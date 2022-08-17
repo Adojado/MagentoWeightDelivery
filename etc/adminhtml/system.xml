@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="carriers" translate="label" type="text" sortOrder="320" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="weightdelivery" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Weight Delivery</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="name" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Method Name</label>
+                </field>
+                <field id="price" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Price</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="check_weight" translate="label comment" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Check weight</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Check weight in checkout</comment>
+                </field>
+                <field id="max_weight" translate="label comment" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Max weight</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                    <depends>
+                        <field id="carriers/weightdelivery/check_weight">1</field>
+                    </depends>
+                    <comment>Disable method if weight of products in cart is greater than provided value</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
